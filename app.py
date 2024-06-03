@@ -58,6 +58,7 @@ def flow_step(url, email, password):
     # print("here Second datata")
     base_url1 = f"http://localhost:9000/api/v3/flows/executor/default-authentication-flow/?query={url}"
     Third_Step = requests.post(base_url1, headers=headers1, json=data)
+
     fourth_step = requests.post(f"http://localhost:9000{Third_Step.json()['to']}", headers=headers1, json=data)
 
     headers1['Cookie'] = f"authentik_session={fourth_step.cookies['authentik_session']}"
@@ -88,4 +89,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
