@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+
+    <div class="banner bg-style" style="background: url('/static/images/banner.png')"> 
+    </div>
+    
+    <section class="login-form">
+        <div class="form-container">
+            <div class="form-head">
+            <h1>Welcome to Login</h1>
+            <p>Log in to unleash the power of GPU Cloud computing.</p>
+            {% if message %}
+                <p style="color: red;">{{ message }}</p>
+            {% endif %}
+        </div>
+            <form method="post" action="{{ url_for('login') }}">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" placeholder="Ex: john.smith@gmail.com / john123" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter password" required>
+                <p class="forgot">Forgot username or password?</p>
+                <input type="submit" value="Login">
+            </form>
+            <div class="divider">
+                <p>OR</p>
+            </div>
+            <div class="google">
+                <a href=""><img src="/static/images/google.png" /> Sign in with Google</a>
+                <p class="account">Don’t have an account? <span class="clr-purple">Create Account</span></p>
+            </div>
+           
+        
+        </div>
+    </section>
+   
+</body>
+</html>
